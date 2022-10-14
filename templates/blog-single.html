@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'header-normal.html' %}
+
+<!-- Breadcrumb Section Begin -->
+<section class="blog-single-hero set-bg" data-setbg="/static/img/blog-single-hero.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-lg-7 m-auto text-center">
+                <div class="bs-hero-text">
+                    <h2>{{blog.header}}</h2>
+                    <ul>
+                        <li>{{blog.author}}</li>
+                        <li>{{blog.date}}</li>
+                        <li>08 Comments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb End -->
+
+<!-- Blog Single Section Begin -->
+<section class="blog-single-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog-single-text">
+                    <div class="blog-text">
+                        <p>
+                            {{blog.content}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-single-sidebar">
+                    <div class="bs-latest-news">
+                        <h4>News Latest</h4>
+                        {% for item in last_news %}
+                        <a href="#" class="bl-item set-bg" data-setbg="/static/img/sidebar-latest.jpg">
+                            <h5>{{item.header}}</h5>
+                            <span>{{item.date}}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <div class="bs-recent-news">
+                        <h4>Recent News</h4>
+                        {% for item in recent_news %}
+                        <a href="#" class="br-item">
+                            <div class="bi-pic">
+                                <img src={{item.image}} alt="">
+                            </div>
+                            <div class="bi-text">
+                                <span>{{item.date}}</span>
+                                <h5>{{item.header}}</h5>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="recent-news">
+                    <h4>Relatest News</h4>
+                    <div class="row">
+                        {% for item in relatest_news %}
+                        <div class="col-lg-4">
+                            <div class="recent-item set-bg" data-setbg={{item.image}}>
+                                <a href="#" class="recent-text">
+                                    <div class="categories">{{item.category}}</div>
+                                    <h5>{{item.header}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="leave-comment-form">
+                    <h4>Leave A Comment</h4>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" placeholder="Email">
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" placeholder="Phone">
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea placeholder="Comment"></textarea>
+                                <button type="submit" class="leave-btn">Post Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Single Section End -->
+
+<!-- Cta Section Begin -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-text">
+                    <h3>GeT Started Today</h3>
+                    <p>New student special! $30 unlimited Gym for the first week anh 50% of our member!</p>
+                </div>
+                <a href="#" class="primary-btn cta-btn">book now</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cta Section End -->
+
+{% endblock %}
